@@ -2,13 +2,12 @@ name: Build and Publish
 
 on:
   push:
-    branches: [master]
+    branches:
+     - master
 
-defaults:
-  build-and-push-docker-image:
-    name: Build Docker image and push to repositories
+jobs:
+  docker:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
