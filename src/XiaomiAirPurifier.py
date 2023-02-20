@@ -2,8 +2,8 @@ import logging
 
 from homie_helpers import FloatProperty, EnumProperty, Homie, Node, State
 from miio import DeviceException
-from miio.airpurifier import AirPurifier
-from miio.airpurifier import OperationMode
+from miio.integrations.airpurifier.zhimi.airpurifier import AirPurifier
+from miio.integrations.airpurifier.zhimi.airpurifier import OperationMode
 
 
 class XiaomiAirPurifier:
