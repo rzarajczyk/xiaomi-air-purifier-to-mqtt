@@ -20,9 +20,10 @@ class XiaomiAirPurifier:
                                            values=["off", "silent", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
                                                    "11", "12", "13", "14", "15", "16", "auto"],
                                            set_handler=self.set_speed)
+        self.property_filter_remaining = FloatProperty("filter-remaining", unit="%", min_value=0, max_value=100)
 
         self.homie = Homie(mqtt_settings, device_id, "Xiaomi Air Purifier 2", nodes=[
-            Node("status", properties=[self.property_temperature, self.property_humidity]),
+            Node("status", properties=[self.property_temperature, self.property_humidity, self.property_filter_remaining]),
             Node("speed", properties=[self.property_speed])
         ])
 
@@ -32,6 +33,7 @@ class XiaomiAirPurifier:
             speed = self._create_speed(is_on=status.is_on, mode=status.mode, favorite_level=status.favorite_level)
             self.property_temperature.value = status.temperature
             self.property_humidity.value = status.humidity
+            self.property_filter_remaining.value = status.filter_life_remaining
             self.property_speed.value = speed
             self.homie.state = State.READY
         except DeviceException as e:
