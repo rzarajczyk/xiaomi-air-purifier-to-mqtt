@@ -11,7 +11,6 @@ services:
     volumes:
       - ./config/xiaomi-air-purifier-to-mqtt.yaml:/app/config/config.yaml
     restart: unless-stopped
-    network_mode: host
 ```
 
 ## Configuration
