@@ -1,6 +1,4 @@
-FROM python:3
-
-RUN mkdir -p /app/config
+FROM python:3.10-slim-bullseye
 
 WORKDIR /app
 
