@@ -22,9 +22,8 @@ mqtt:
   username: <username>
   password: <passqord>
 
-fetch-interval-seconds: 5  # how often should the Monitor be pulled
-
 xiaomi-air-purifier:
+  fetch-interval-seconds: 5  # how often should the Monitor be pulled
   id: xiaomi-air-purifier   # how will the device be identified in MQTT  
   ip: <device IP>
   token: <device token>
